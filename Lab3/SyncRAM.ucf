@@ -1,5 +1,5 @@
 Net "we" LOC="A10" | IOSTANDARD = LVCMOS33;
-Net "clk" LOC="E11" | IOSTANDARD = LVCMOS33;
+Net "clk" LOC="B8" | IOSTANDARD = LVCMOS33;
 
 Net "address[0]" LOC="E10" | IOSTANDARD = LVCMOS33;
 Net "address[1]" LOC="D10" | IOSTANDARD = LVCMOS33;
