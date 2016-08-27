@@ -1,0 +1,2 @@
+verilog work "ControlUnit.v"
+verilog work "ControlUnit_Main.v"

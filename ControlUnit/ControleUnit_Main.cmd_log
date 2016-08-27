@@ -1,0 +1,51 @@
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+map -intstyle ise -p xc3s500e-ft256-5 -cm area -ir off -pr off -c 100 -o ControleUnit_Main_map.ncd ControleUnit_Main.ngd ControleUnit_Main.pcf 
+par -w -intstyle ise -ol high -t 1 ControleUnit_Main_map.ncd ControleUnit_Main.ncd ControleUnit_Main.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml ControleUnit_Main.twx ControleUnit_Main.ncd -o ControleUnit_Main.twr ControleUnit_Main.pcf -ucf cunit.ucf 
+bitgen -intstyle ise -f ControleUnit_Main.ut ControleUnit_Main.ncd 
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+map -intstyle ise -p xc3s500e-ft256-5 -cm area -ir off -pr off -c 100 -o ControleUnit_Main_map.ncd ControleUnit_Main.ngd ControleUnit_Main.pcf 
+par -w -intstyle ise -ol high -t 1 ControleUnit_Main_map.ncd ControleUnit_Main.ncd ControleUnit_Main.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml ControleUnit_Main.twx ControleUnit_Main.ncd -o ControleUnit_Main.twr ControleUnit_Main.pcf -ucf cunit.ucf 
+bitgen -intstyle ise -f ControleUnit_Main.ut ControleUnit_Main.ncd 
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+map -intstyle ise -p xc3s500e-ft256-5 -cm area -ir off -pr off -c 100 -o ControleUnit_Main_map.ncd ControleUnit_Main.ngd ControleUnit_Main.pcf 
+par -w -intstyle ise -ol high -t 1 ControleUnit_Main_map.ncd ControleUnit_Main.ncd ControleUnit_Main.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml ControleUnit_Main.twx ControleUnit_Main.ncd -o ControleUnit_Main.twr ControleUnit_Main.pcf -ucf cunit.ucf 
+bitgen -intstyle ise -f ControleUnit_Main.ut ControleUnit_Main.ncd 
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+map -intstyle ise -p xc3s500e-ft256-5 -cm area -ir off -pr off -c 100 -o ControleUnit_Main_map.ncd ControleUnit_Main.ngd ControleUnit_Main.pcf 
+par -w -intstyle ise -ol high -t 1 ControleUnit_Main_map.ncd ControleUnit_Main.ncd ControleUnit_Main.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml ControleUnit_Main.twx ControleUnit_Main.ncd -o ControleUnit_Main.twr ControleUnit_Main.pcf -ucf cunit.ucf 
+bitgen -intstyle ise -f ControleUnit_Main.ut ControleUnit_Main.ncd 
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+map -intstyle ise -p xc3s500e-ft256-5 -cm area -ir off -pr off -c 100 -o ControleUnit_Main_map.ncd ControleUnit_Main.ngd ControleUnit_Main.pcf 
+par -w -intstyle ise -ol high -t 1 ControleUnit_Main_map.ncd ControleUnit_Main.ncd ControleUnit_Main.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml ControleUnit_Main.twx ControleUnit_Main.ncd -o ControleUnit_Main.twr ControleUnit_Main.pcf -ucf cunit.ucf 
+bitgen -intstyle ise -f ControleUnit_Main.ut ControleUnit_Main.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+map -intstyle ise -p xc3s500e-ft256-5 -cm area -ir off -pr off -c 100 -o ControleUnit_Main_map.ncd ControleUnit_Main.ngd ControleUnit_Main.pcf 
+par -w -intstyle ise -ol high -t 1 ControleUnit_Main_map.ncd ControleUnit_Main.ncd ControleUnit_Main.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml ControleUnit_Main.twx ControleUnit_Main.ncd -o ControleUnit_Main.twr ControleUnit_Main.pcf -ucf cunit.ucf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+map -intstyle ise -p xc3s500e-ft256-5 -cm area -ir off -pr off -c 100 -o ControleUnit_Main_map.ncd ControleUnit_Main.ngd ControleUnit_Main.pcf 
+par -w -intstyle ise -ol high -t 1 ControleUnit_Main_map.ncd ControleUnit_Main.ncd ControleUnit_Main.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml ControleUnit_Main.twx ControleUnit_Main.ncd -o ControleUnit_Main.twr ControleUnit_Main.pcf -ucf cunit.ucf 
+bitgen -intstyle ise -f ControleUnit_Main.ut ControleUnit_Main.ncd 
+xst -intstyle ise -ifn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.xst" -ofn "C:/Users/Raim/Documents/Xilin-Projects/ControlUnit/ControleUnit_Main.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc cunit.ucf -p xc3s500e-ft256-5 ControleUnit_Main.ngc ControleUnit_Main.ngd  
+map -intstyle ise -p xc3s500e-ft256-5 -cm area -ir off -pr off -c 100 -o ControleUnit_Main_map.ncd ControleUnit_Main.ngd ControleUnit_Main.pcf 
+par -w -intstyle ise -ol high -t 1 ControleUnit_Main_map.ncd ControleUnit_Main.ncd ControleUnit_Main.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml ControleUnit_Main.twx ControleUnit_Main.ncd -o ControleUnit_Main.twr ControleUnit_Main.pcf -ucf cunit.ucf 
+bitgen -intstyle ise -f ControleUnit_Main.ut ControleUnit_Main.ncd 
