@@ -1,4 +1,4 @@
-int op_pines[] = {24, 25, 28, 29, 32};//2 bits
+int op_pines[] = {30, 25, 28, 29, 32};//2 bits
 int flags_pines[] = {33, 34, 35, 38, 42, 43, 44, 45, 48, 49, 50, 51, 22, 23};//14 bits
 int flags[14];
 
@@ -33,14 +33,14 @@ void loop() {
   
   Serial.print("Datos");  
   delay(1000);
-  for(int i=4; i>0; i--){
+  for(int i=4; i>=0; i--){
     digitalWrite(op_pines[i], op[i] == '1' ? HIGH : LOW);
   }
   Serial.println("");
   
   delay(1000);
   //Extrayendo estado de los flags
-  for(int i=0; i < 14; i++){
+  for(int i = 0; i < 14; i++){
       flags[i] = digitalRead(flags_pines[i]);
   }
 
@@ -55,9 +55,9 @@ void loop() {
   Serial.print("is immediate: "); //38
   Serial.println(flags[3]);
   Serial.print("ALU function: "); //42, 43, 44
-  Serial.print(flags[4]);
+  Serial.print(flags[6]);
   Serial.print(flags[5]);
-  Serial.println(flags[6]);
+  Serial.println(flags[4]);
   Serial.print("flags write: "); //45
   Serial.println(flags[7]);
   Serial.print("dm write enable: "); //48
