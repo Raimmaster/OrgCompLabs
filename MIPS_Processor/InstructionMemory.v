@@ -1,11 +1,8 @@
 module InstructionMemory(
 	input [7:0] address,
-	output reg [7:0] data
+	output reg [7:0] instruction
 	);
 	
-	reg [7:0] instruction_data [0:255];
-
 	
-
 
 endmodule

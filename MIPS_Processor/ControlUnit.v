@@ -13,11 +13,29 @@ module ControleUnit(
 	output reg is_jg,
 	output reg is_jump
 	);
+	parameter
+		NOP = 5'h0,
+		ADD = 5'h1,
+		SUB = 5'h2,
+		OR  = 5'h3,
+		AND = 5'h4,
+		XOR = 5'h5,
+		MOV = 5'h6,
+		LW  = 5'h7,
+		SW  = 5'h8,
+		LI  = 5'h9,
+		ADDI = 5'hA,
+		SUBI = 5'hB,
+		JZ  = 5'hC,
+		JNZ = 5'hD,
+		JG  = 5'hE,
+		JL  = 5'hF,
+		JUMP = 5'h11;
 
 	always @(opcode)
 		begin
 			case(opcode)
-				5'h0: //nop
+				NOP: //nop
 				begin
 					reg_write <= 0;
 					is_move	<= 0;
@@ -32,7 +50,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h1: //add
+				ADD: //add
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -47,7 +65,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h2: //sub
+				SUB: //sub
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -62,7 +80,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h3: //or
+				OR: //or
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -77,7 +95,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h4: //and
+				AND: //and
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -92,7 +110,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h5: //xor
+				XOR: //xor
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -107,7 +125,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h6: //mov
+				MOV: //mov
 				begin
 					reg_write <= 1;
 					is_move	<= 1;
@@ -122,7 +140,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h7: //lw
+				LW: //lw
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -137,7 +155,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h8: //sw
+				SW: //sw
 				begin
 					reg_write <= 0;
 					is_move	<= 0;
@@ -152,7 +170,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h9: //li
+				LI: //li
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -167,7 +185,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'hA: //addi
+				ADDI: //addi
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -182,7 +200,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'hB: //subi
+				SUBI: //subi
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
@@ -197,7 +215,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'hC: //cmp
+				CMP: //cmp
 				begin
 					reg_write <= 0;
 					is_move	<= 0;
@@ -212,7 +230,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'hD: //jz
+				JZ: //jz
 				begin
 					reg_write <= 0;
 					is_move	<= 0;
@@ -227,7 +245,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'hE: //jnz
+				JNZ: //jnz
 				begin
 					reg_write <= 0;
 					is_move	<= 0;
@@ -242,7 +260,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'hF: //jg
+				JG: //jg
 				begin
 					reg_write <= 0;
 					is_move	<= 0;
@@ -257,7 +275,7 @@ module ControleUnit(
 					is_jg <= 1;
 					is_jump <= 0;
 				end
-				5'hF: //jl
+				JL: //jl
 				begin
 					reg_write <= 0;
 					is_move	<= 0;
@@ -272,7 +290,7 @@ module ControleUnit(
 					is_jg <= 0;
 					is_jump <= 0;
 				end
-				5'h11: //jump
+				JUMP: //jump
 				begin
 					reg_write <= 0;
 					is_move	<= 0;
