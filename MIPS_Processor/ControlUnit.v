@@ -11,7 +11,8 @@ module ControleUnit(
 	output reg is_jnz,
 	output reg is_jl,
 	output reg is_jg,
-	output reg is_jump
+	output reg is_jump,
+	output reg is_reg_imm
 	);
 	parameter
 		NOP = 5'h0,
@@ -26,14 +27,17 @@ module ControleUnit(
 		LI  = 5'h9,
 		ADDI = 5'hA,
 		SUBI = 5'hB,
-		JZ  = 5'hC,
-		JNZ = 5'hD,
-		JG  = 5'hE,
-		JL  = 5'hF,
+		CMP = 5'hC,
+		JZ  = 5'hD,
+		JNZ = 5'hE,
+		JG  = 5'hF,
+		JL  = 5'h10,
 		JUMP = 5'h11;
 
 	always @(opcode)
 		begin
+			is_reg_imm <= 0;
+
 			case(opcode)
 				NOP: //nop
 				begin
@@ -175,7 +179,7 @@ module ControleUnit(
 					reg_write <= 1;
 					is_move	<= 0;
 					is_mem_access <= 0;
-					is_imm <= 1;
+					is_imm <= 0;
 					alu_function <= 3'b000;
 					flags_write <= 0;
 					dm_write_enable <= 0;
@@ -184,13 +188,14 @@ module ControleUnit(
 					is_jl <= 0;
 					is_jg <= 0;
 					is_jump <= 0;
+					is_reg_imm <= 1;
 				end
 				ADDI: //addi
 				begin
 					reg_write <= 1;
 					is_move	<= 0;
 					is_mem_access <= 0;
-					is_imm <= 0;
+					is_imm <= 1;
 					alu_function <= 3'b000;
 					flags_write <= 1;
 					dm_write_enable <= 0;
@@ -205,7 +210,7 @@ module ControleUnit(
 					reg_write <= 1;
 					is_move	<= 0;
 					is_mem_access <= 0;
-					is_imm <= 0;
+					is_imm <= 1;
 					alu_function <= 3'b001;
 					flags_write <= 1;
 					dm_write_enable <= 0;

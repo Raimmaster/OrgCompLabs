@@ -1,5 +1,6 @@
 module MIPS_Processor(
-	input clk,
+	input clk
 	
 	);
 
+endmodule

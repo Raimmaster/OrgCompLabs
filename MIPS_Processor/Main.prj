@@ -1,0 +1,8 @@
+verilog work "SyncRAM.v"
+verilog work "RegisterFile.v"
+verilog work "PC.v"
+verilog work "Jumps.v"
+verilog work "InstructionMemory.v"
+verilog work "ControlUnit.v"
+verilog work "ALU.v"
+verilog work "Main.v"

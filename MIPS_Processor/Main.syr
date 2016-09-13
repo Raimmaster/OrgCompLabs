@@ -1,0 +1,167 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Reading design: Main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Main.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Main"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-ft256
+
+---- Source Options
+Top Module Name                    : Main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "SyncRAM.v" in library work
+Compiling verilog file "RegisterFile.v" in library work
+Module <SyncRAM> compiled
+Compiling verilog file "PC.v" in library work
+Module <RegisterFile> compiled
+Compiling verilog file "Jumps.v" in library work
+Module <PC> compiled
+Compiling verilog file "InstructionMemory.v" in library work
+Module <Jumps> compiled
+Compiling verilog file "ControlUnit.v" in library work
+Module <InstructionMemory> compiled
+Compiling verilog file "ALU.v" in library work
+Module <ControleUnit> compiled
+Compiling verilog file "Main.v" in library work
+Module <ALU> compiled
+Module <Main> compiled
+No errors in compilation
+Analysis of file <"Main.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+ERROR:HDLCompilers:246 - "Main.v" line 56 Reference to vector reg 'read_data2' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 56 Connection to output port 'read_data2' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 58 Reference to scalar reg 'reg_write' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 58 Connection to output port 'reg_write' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 58 Reference to scalar reg 'is_move' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 58 Connection to output port 'is_move' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 58 Reference to scalar reg 'is_mem_access' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 58 Connection to output port 'is_mem_access' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 58 Reference to scalar reg 'is_imm' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 58 Connection to output port 'is_imm' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 59 Reference to scalar reg 'write_flags' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 59 Connection to output port 'flags_write' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 59 Reference to scalar reg 'dm_write_enable' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 59 Connection to output port 'dm_write_enable' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 59 Reference to scalar reg 'is_jz' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 59 Connection to output port 'is_jz' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 59 Reference to scalar reg 'is_jnz' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 59 Connection to output port 'is_jnz' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 59 Reference to scalar reg 'is_jl' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 59 Connection to output port 'is_jl' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 59 Reference to scalar reg 'is_jg' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 59 Connection to output port 'is_jg' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 59 Reference to scalar reg 'is_jump' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 59 Connection to output port 'is_jump' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 59 Reference to scalar reg 'is_reg_imm' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 59 Connection to output port 'is_reg_imm' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 63 Reference to vector reg 'result' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 63 Connection to output port 'result' must be a net lvalue
+ERROR:HDLCompilers:246 - "Main.v" line 65 Reference to vector reg 'data_out' is not a legal net lvalue
+ERROR:HDLCompilers:102 - "Main.v" line 65 Connection to output port 'data_out' must be a net lvalue
+--> 
+
+Total memory usage is 194032 kilobytes
+
+Number of errors   :   30 (   0 filtered)
+Number of warnings :    9 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
