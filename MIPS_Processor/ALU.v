@@ -5,8 +5,8 @@ module ALU(
 	output signed [7:0] result,
 	output reg is_zero,
 	output reg is_sign,
-	output reg is_ovf,
-	output reg [3:0] LED
+	output reg is_ovf
+	//output reg [7:0] LED
    );
 
 	parameter ADD = 3'H0;
@@ -17,7 +17,7 @@ module ALU(
 
 	reg [3:0] result_data;
 	assign result = result_data;
-
+	
 	always @ (a or b or _function)
 	begin
 		case (_function)
@@ -34,7 +34,6 @@ module ALU(
 			XOR: result_data = a ^ b;
 			default: result_data = 3'H0;
 		endcase
-		LED = a;
 		is_zero = result_data == 0;
 		is_sign = result_data < 0;
 
@@ -42,6 +41,8 @@ module ALU(
 			is_ovf = 1;
 		else
 			is_ovf = 0;
+			
+		//LED = result_data;
 	end
 
 endmodule
