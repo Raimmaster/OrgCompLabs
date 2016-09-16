@@ -1,31 +1,21 @@
 module InstructionMemory(
-	input clk,
-	input [7:0] address,
-	input [15:0] instruction_in,
-	input [7:0] new_instruction_address,
-	input finish,
-	output [15:0] instruction,
-	input we,
-	output [7:0] LED
-	);
-	
-	reg [15:0] instructions_mem [0:255];
-	reg [15:0] curr_instruction;
-	
-	assign instruction = curr_instruction;
-	assign LED = instruction[7:0];
+    input [7:0] address,
+    output reg [15:0] data
+);
 
-	//reg [7:0] i;//counter
-	//assign i = 0;
-	always @(posedge clk)
-	begin
-		if(we) begin
-			instructions_mem[new_instruction_address] = instruction_in;
-			curr_instruction = 16'h0;
-		end
-		else
-			curr_instruction = instructions_mem[address];
-			
-	end
-
+    always @ (address)
+    begin
+        case (address)
+            8'h00: data = 16'h485A;
+            8'h01: data = 16'h4A14;
+            8'h02: data = 16'h4DF6;
+            8'h03: data = 16'h4F96;
+            8'h04: data = 16'h0880;
+            8'h05: data = 16'h4E02;
+            8'h06: data = 16'h6180;
+            8'h07: data = 16'h6800;
+            8'h08: data = 16'h8820;
+            default: data = 16'h0000;
+        endcase
+    end
 endmodule

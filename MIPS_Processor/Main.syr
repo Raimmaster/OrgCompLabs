@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: Main.prj
 
@@ -280,7 +280,7 @@ Synthesizing Unit <ALU>.
     Found 4-bit comparator greater for signal <is_ovf$cmp_gt0000> created at line 40.
     Found 9-bit comparator less for signal <is_ovf$cmp_lt0000> created at line 40.
     Found 9-bit comparator less for signal <is_ovf$cmp_lt0001> created at line 40.
-    Found 4-bit addsub for signal <old_result_data_4$addsub0000>.
+    Found 4-bit addsub for signal <old_result_data_3$addsub0000>.
     Found 8-bit xor2 for signal <result_data$xor0000> created at line 34.
     Summary:
 	inferred   1 Adder/Subtractor(s).
@@ -632,9 +632,9 @@ Offset:              17.887ns (Levels of Logic = 11)
      RAMB16_S18_S18:CLKB->DOB13   11   2.436   0.945  imem/Mram_instructions_mem (imem_instruction<13>)
      LUT3:I0->O            4   0.612   0.529  cunit/alu_function<1>11 (N4)
      LUT3:I2->O            7   0.612   0.605  cunit/reg_write_cmp_eq00121 (alu_function<2>)
-     LUT4:I3->O            2   0.612   0.532  alun/_old_result_data_4<0>10 (alun/_old_result_data_4<0>10)
-     LUT4:I0->O            3   0.612   0.603  alun/_old_result_data_4<0>13 (alun/_old_result_data_4<0>13)
-     LUT3:I0->O            3   0.612   0.520  alun/_old_result_data_4<1>100 (result<1>)
+     LUT4:I3->O            2   0.612   0.532  alun/_old_result_data_3<0>10 (alun/_old_result_data_3<0>10)
+     LUT4:I0->O            3   0.612   0.603  alun/_old_result_data_3<0>13 (alun/_old_result_data_3<0>13)
+     LUT3:I0->O            3   0.612   0.520  alun/_old_result_data_3<1>100 (result<1>)
      LUT3:I1->O            2   0.612   0.532  alun/is_ovf_and0000_SW0 (N6)
      LUT4:I0->O            2   0.612   0.383  mMux/data_and0000 (mMux/data_and0000)
      LUT4:I3->O            8   0.612   0.646  mMux/data<0>21 (N3)
@@ -648,14 +648,14 @@ Offset:              17.887ns (Levels of Logic = 11)
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.92 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.15 secs
  
 --> 
 
-Total memory usage is 211524 kilobytes
+Total memory usage is 212080 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   26 (   0 filtered)
+Number of warnings :   25 (   0 filtered)
 Number of infos    :   29 (   0 filtered)
 
