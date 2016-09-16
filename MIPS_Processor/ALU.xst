@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/Raim/Documents/GitHub/OrgCompLabs/MIPS_Processor/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/Raim/Documents/GitHub/OrgCompLabs/MIPS_Processor/xst"
+elaborate
+-ifn ALU.prj
+-ifmt mixed

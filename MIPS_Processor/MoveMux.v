@@ -15,7 +15,7 @@ module MoveMux(
 	assign move_data = is_move ? reg_read_data : result;
 	assign w_mem = is_mem_access ? mem_data : move_data;
 
-	always @(is_move or is_mem_access or is_li or reg_read_data) 
+	always @(*) 
 	begin
 		if(is_li) begin
 			data = immediate;

@@ -44,14 +44,14 @@ Setup/Hold to clock clk
                |Max Setup to|Max Hold to |                  | Clock  |
 Source         | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ---------------+------------+------------+------------------+--------+
-instruct_dir<0>|    4.132(R)|   -1.088(R)|clk_BUFGP         |   0.000|
-instruct_dir<1>|    2.794(R)|   -0.037(R)|clk_BUFGP         |   0.000|
-instruct_dir<2>|    3.380(R)|    0.010(R)|clk_BUFGP         |   0.000|
-instruct_dir<3>|    4.763(R)|   -1.339(R)|clk_BUFGP         |   0.000|
-instruct_dir<4>|    5.319(R)|   -1.784(R)|clk_BUFGP         |   0.000|
-instruct_dir<5>|    4.667(R)|   -1.262(R)|clk_BUFGP         |   0.000|
-instruct_dir<6>|    4.241(R)|   -0.922(R)|clk_BUFGP         |   0.000|
-instruct_dir<7>|    4.377(R)|   -1.030(R)|clk_BUFGP         |   0.000|
+instruct_dir<0>|    4.348(R)|   -0.575(R)|clk_BUFGP         |   0.000|
+instruct_dir<1>|    4.362(R)|   -0.203(R)|clk_BUFGP         |   0.000|
+instruct_dir<2>|    4.360(R)|    0.486(R)|clk_BUFGP         |   0.000|
+instruct_dir<3>|    4.364(R)|   -0.800(R)|clk_BUFGP         |   0.000|
+instruct_dir<4>|    4.640(R)|   -1.189(R)|clk_BUFGP         |   0.000|
+instruct_dir<5>|    4.362(R)|   -0.908(R)|clk_BUFGP         |   0.000|
+instruct_dir<6>|    4.358(R)|   -0.403(R)|clk_BUFGP         |   0.000|
+instruct_dir<7>|    4.360(R)|   -0.598(R)|clk_BUFGP         |   0.000|
 ---------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -59,58 +59,66 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-is_ovf      |   11.055(R)|clk_BUFGP         |   0.000|
-is_zero     |    9.997(R)|clk_BUFGP         |   0.000|
-register<0> |    9.414(R)|clk_BUFGP         |   0.000|
-register<1> |    8.973(R)|clk_BUFGP         |   0.000|
-register<2> |    9.858(R)|clk_BUFGP         |   0.000|
-register<3> |   10.072(R)|clk_BUFGP         |   0.000|
-register<4> |    8.973(R)|clk_BUFGP         |   0.000|
-register<5> |    9.414(R)|clk_BUFGP         |   0.000|
-register<6> |    9.858(R)|clk_BUFGP         |   0.000|
-register<7> |   10.072(R)|clk_BUFGP         |   0.000|
+LED<0>      |    7.027(R)|clk_BUFGP         |   0.000|
+LED<1>      |    8.110(R)|clk_BUFGP         |   0.000|
+LED<2>      |    8.121(R)|clk_BUFGP         |   0.000|
+LED<3>      |    8.179(R)|clk_BUFGP         |   0.000|
+LED<4>      |    6.828(R)|clk_BUFGP         |   0.000|
+LED<5>      |    8.012(R)|clk_BUFGP         |   0.000|
+LED<6>      |    7.731(R)|clk_BUFGP         |   0.000|
+LED<7>      |    7.410(R)|clk_BUFGP         |   0.000|
+is_ovf      |    9.802(R)|clk_BUFGP         |   0.000|
+is_zero     |    9.502(R)|clk_BUFGP         |   0.000|
+register<0> |    8.491(R)|clk_BUFGP         |   0.000|
+register<1> |    8.224(R)|clk_BUFGP         |   0.000|
+register<2> |    8.957(R)|clk_BUFGP         |   0.000|
+register<3> |    9.172(R)|clk_BUFGP         |   0.000|
+register<4> |    8.927(R)|clk_BUFGP         |   0.000|
+register<5> |    8.719(R)|clk_BUFGP         |   0.000|
+register<6> |    9.171(R)|clk_BUFGP         |   0.000|
+register<7> |    9.388(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-instruct_dir<0>|is_ovf         |   13.141|
-instruct_dir<0>|is_zero        |   12.083|
-instruct_dir<1>|is_ovf         |   11.803|
-instruct_dir<1>|is_zero        |   10.745|
-instruct_dir<2>|is_ovf         |   12.389|
-instruct_dir<2>|is_zero        |   11.331|
-instruct_dir<3>|is_ovf         |   13.772|
-instruct_dir<3>|is_zero        |   12.714|
-instruct_dir<4>|is_ovf         |   14.328|
-instruct_dir<4>|is_zero        |   13.270|
-instruct_dir<5>|is_ovf         |   13.676|
-instruct_dir<5>|is_zero        |   12.618|
-instruct_dir<6>|is_ovf         |   13.250|
-instruct_dir<6>|is_zero        |   12.192|
-instruct_dir<7>|is_ovf         |   13.386|
-instruct_dir<7>|is_zero        |   12.328|
-read_address<0>|register<0>    |    9.407|
-read_address<0>|register<1>    |    8.966|
-read_address<0>|register<2>    |    9.851|
-read_address<0>|register<3>    |   10.065|
-read_address<0>|register<4>    |    8.966|
-read_address<0>|register<5>    |    9.407|
-read_address<0>|register<6>    |    9.851|
-read_address<0>|register<7>    |   10.065|
-read_address<1>|register<0>    |    9.188|
-read_address<1>|register<1>    |    8.747|
-read_address<1>|register<2>    |    9.632|
-read_address<1>|register<3>    |    9.846|
-read_address<1>|register<4>    |    8.747|
-read_address<1>|register<5>    |    9.188|
-read_address<1>|register<6>    |    9.632|
-read_address<1>|register<7>    |    9.846|
+instruct_dir<0>|is_ovf         |   10.685|
+instruct_dir<0>|is_zero        |   10.385|
+instruct_dir<1>|is_ovf         |   10.222|
+instruct_dir<1>|is_zero        |    9.922|
+instruct_dir<2>|is_ovf         |   10.169|
+instruct_dir<2>|is_zero        |    9.869|
+instruct_dir<3>|is_ovf         |   11.710|
+instruct_dir<3>|is_zero        |   11.410|
+instruct_dir<4>|is_ovf         |   12.390|
+instruct_dir<4>|is_zero        |   12.090|
+instruct_dir<5>|is_ovf         |   11.845|
+instruct_dir<5>|is_zero        |   11.545|
+instruct_dir<6>|is_ovf         |   11.213|
+instruct_dir<6>|is_zero        |   10.913|
+instruct_dir<7>|is_ovf         |   11.457|
+instruct_dir<7>|is_zero        |   11.157|
+read_address<0>|register<0>    |    7.741|
+read_address<0>|register<1>    |    7.474|
+read_address<0>|register<2>    |    8.207|
+read_address<0>|register<3>    |    8.422|
+read_address<0>|register<4>    |    8.177|
+read_address<0>|register<5>    |    7.969|
+read_address<0>|register<6>    |    8.421|
+read_address<0>|register<7>    |    8.638|
+read_address<1>|register<0>    |    8.706|
+read_address<1>|register<1>    |    8.439|
+read_address<1>|register<2>    |    9.172|
+read_address<1>|register<3>    |    9.387|
+read_address<1>|register<4>    |    9.142|
+read_address<1>|register<5>    |    8.934|
+read_address<1>|register<6>    |    9.386|
+read_address<1>|register<7>    |    9.603|
 ---------------+---------------+---------+
 
 
-Analysis completed Thu Sep 15 21:43:06 2016 
+Analysis completed Thu Sep 15 22:12:59 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:

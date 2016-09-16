@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Thu Sep 15 21:43:04 2016
+Thu Sep 15 22:12:56 2016
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -67,7 +67,7 @@ Pinout by Pin Number:
 |C13       |               |IBUF     |IP                       |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
 |C14       |               |         |TDO                      |         |           |              |          |         |           |         |         |          |           |                |
 |C15       |instruction<0> |IBUF     |IO_L19N_1/LDC2           |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|C16       |instruct_dir<4>|IBUF     |IO_L19P_1/LDC1           |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|C16       |instruct_dir<4>|IBUF     |IO_L19P_1/LDC1           |INPUT    |LVCMOS33   |1             |          |         |           |IFD      |         |LOCATED   |YES        |NONE            |
 |D1        |               |DIFFM    |IO_L05P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |D2        |               |IBUF     |IP                       |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |D3        |               |         |PROG_B                   |         |           |              |          |         |           |         |         |          |           |                |
@@ -82,7 +82,7 @@ Pinout by Pin Number:
 |D12       |               |DIFFMI   |IP_L02P_0                |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
 |D13       |               |         |VCCINT                   |         |           |              |          |         |           |         |1.2      |          |           |                |
 |D14       |instruction<5> |IBUF     |IO_L18N_1/LDC0           |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|D15       |instruct_dir<0>|IBUF     |IO_L18P_1/HDC            |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|D15       |instruct_dir<0>|IBUF     |IO_L18P_1/HDC            |INPUT    |LVCMOS33   |1             |          |         |           |IFD      |         |LOCATED   |YES        |NONE            |
 |D16       |               |IBUF     |IP/VREF_1                |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |E1        |               |DIFFS    |IO_L05N_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |E2        |               |         |VCCO_3                   |         |           |3             |          |         |           |         |any******|          |           |                |
@@ -130,8 +130,8 @@ Pinout by Pin Number:
 |G12       |               |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |G13       |instruction<3> |IBUF     |IO_L14P_1                |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |G14       |instruction<7> |IBUF     |IO_L14N_1/A0             |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|G15       |instruct_dir<5>|IBUF     |IO_L13P_1/A2             |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|G16       |instruct_dir<1>|IBUF     |IO_L13N_1/A1             |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|G15       |instruct_dir<5>|IBUF     |IO_L13P_1/A2             |INPUT    |LVCMOS33   |1             |          |         |           |IFD      |         |LOCATED   |YES        |NONE            |
+|G16       |instruct_dir<1>|IBUF     |IO_L13N_1/A1             |INPUT    |LVCMOS33   |1             |          |         |           |IFD      |         |LOCATED   |YES        |NONE            |
 |H1        |               |IBUF     |IP                       |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |H2        |               |         |GND                      |         |           |              |          |         |           |         |         |          |           |                |
 |H3        |               |DIFFM    |IO_L09P_3/LHCLK2         |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
@@ -146,7 +146,7 @@ Pinout by Pin Number:
 |H12       |instruction<12>|IBUF     |IO_L12P_1/A4/RHCLK6      |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |H13       |               |IBUF     |IP/VREF_1                |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |H14       |instruction<8> |IBUF     |IO_L11N_1/A5/RHCLK5      |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|H15       |instruct_dir<6>|IBUF     |IO_L11P_1/A6/RHCLK4/IRDY1|INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|H15       |instruct_dir<6>|IBUF     |IO_L11P_1/A6/RHCLK4/IRDY1|INPUT    |LVCMOS33   |1             |          |         |           |IFD      |         |LOCATED   |YES        |NONE            |
 |H16       |               |IBUF     |IP                       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |J1        |               |DIFFM    |IO_L12P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |J2        |               |DIFFM    |IO_L10P_3/LHCLK4/TRDY2   |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
@@ -163,7 +163,7 @@ Pinout by Pin Number:
 |J13       |instruction<9> |IBUF     |IO_L10N_1/A7/RHCLK3/TRDY1|INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |J14       |instruction<13>|IBUF     |IO_L10P_1/A8/RHCLK2      |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |J15       |               |         |GND                      |         |           |              |          |         |           |         |         |          |           |                |
-|J16       |instruct_dir<2>|IBUF     |IO_L09N_1/A9/RHCLK1      |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|J16       |instruct_dir<2>|IBUF     |IO_L09N_1/A9/RHCLK1      |INPUT    |LVCMOS33   |1             |          |         |           |IFD      |         |LOCATED   |YES        |NONE            |
 |K1        |               |DIFFS    |IO_L12N_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |K2        |               |DIFFM    |IO_L13P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |K3        |               |DIFFS    |IO_L13N_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
@@ -178,8 +178,8 @@ Pinout by Pin Number:
 |K12       |instruction<15>|IBUF     |IO_L07N_1/A11            |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |K13       |instruction<10>|IBUF     |IO_L07P_1/A12            |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |K14       |instruction<14>|IBUF     |IO_L08N_1/VREF_1         |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|K15       |instruct_dir<3>|IBUF     |IO_L08P_1                |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|K16       |instruct_dir<7>|IBUF     |IO_L09P_1/A10/RHCLK0     |INPUT    |LVCMOS33   |1             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|K15       |instruct_dir<3>|IBUF     |IO_L08P_1                |INPUT    |LVCMOS33   |1             |          |         |           |IFD      |         |LOCATED   |YES        |NONE            |
+|K16       |instruct_dir<7>|IBUF     |IO_L09P_1/A10/RHCLK0     |INPUT    |LVCMOS33   |1             |          |         |           |IFD      |         |LOCATED   |YES        |NONE            |
 |L1        |               |         |VCCAUX                   |         |           |              |          |         |           |         |2.5      |          |           |                |
 |L2        |               |DIFFS    |IO_L14N_3/VREF_3         |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
 |L3        |               |DIFFM    |IO_L14P_3                |UNUSED   |           |3             |          |         |           |         |         |          |           |                |

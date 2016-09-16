@@ -1,16 +1,14 @@
 `timescale 1ns / 1ps
 
 module PC(
-	input [7:0] new_PC,
-	output[7:0] curr_PC
+	input clk,
+	input [7:0] curr_PC,
+	output reg [7:0] new_PC
    );
-	 
-	reg [7:0] PC;
-	assign curr_PC = PC;
 
-	always @(new_PC)
+	always @(posedge clk)
 	begin
-		PC = new_PC;
+		new_PC= curr_PC +1;
 	end
 
 endmodule

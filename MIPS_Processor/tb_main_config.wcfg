@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Raim/Documents/GitHub/OrgCompLabs/MIPS_Processor/tb_Main_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_Main" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/tb_Main/is_zero" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">is_zero</obj_property>
+      <obj_property name="ObjectShortName">is_zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/is_ovf" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">is_ovf</obj_property>
+      <obj_property name="ObjectShortName">is_ovf</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/is_sign" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">is_sign</obj_property>
+      <obj_property name="ObjectShortName">is_sign</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/register" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">register[7:0]</obj_property>
+      <obj_property name="ObjectShortName">register[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/LED" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LED[7:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/we" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">we</obj_property>
+      <obj_property name="ObjectShortName">we</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction[15:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/instruct_dir" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruct_dir[7:0]</obj_property>
+      <obj_property name="ObjectShortName">instruct_dir[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/read_enable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">read_enable</obj_property>
+      <obj_property name="ObjectShortName">read_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/read_address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">read_address[1:0]</obj_property>
+      <obj_property name="ObjectShortName">read_address[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/finish" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">finish</obj_property>
+      <obj_property name="ObjectShortName">finish</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/main/imem_instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">imem_instruction[15:0]</obj_property>
+      <obj_property name="ObjectShortName">imem_instruction[15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/main/curr_PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">curr_PC[7:0]</obj_property>
+      <obj_property name="ObjectShortName">curr_PC[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/main/pc/curr_PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">curr_PC[7:0]</obj_property>
+      <obj_property name="ObjectShortName">curr_PC[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/main/pc/new_PC" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">new_PC[7:0]</obj_property>
+      <obj_property name="ObjectShortName">new_PC[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_Main/main/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+</wave_config>

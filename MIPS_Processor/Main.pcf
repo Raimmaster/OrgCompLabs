@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Sep 15 21:42:54 2016
+// Written by: Map P.20131013 on Thu Sep 15 22:12:49 2016
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -24,15 +24,15 @@ COMP "instruction<0>" LOCATE = SITE "C15" LEVEL 1;
 COMP "instruction<1>" LOCATE = SITE "F13" LEVEL 1;
 COMP "LED<0>" LOCATE = SITE "C11" LEVEL 1;
 COMP "instruction<2>" LOCATE = SITE "F14" LEVEL 1;
-COMP "LED<1>" LOCATE = SITE "D11" LEVEL 1;
 COMP "we" LOCATE = SITE "P6" LEVEL 1;
+COMP "LED<1>" LOCATE = SITE "D11" LEVEL 1;
 COMP "instruction<3>" LOCATE = SITE "G13" LEVEL 1;
 COMP "LED<2>" LOCATE = SITE "B11" LEVEL 1;
 COMP "instruction<4>" LOCATE = SITE "F12" LEVEL 1;
 COMP "LED<3>" LOCATE = SITE "A12" LEVEL 1;
 COMP "instruction<5>" LOCATE = SITE "D14" LEVEL 1;
-COMP "LED<4>" LOCATE = SITE "A13" LEVEL 1;
 COMP "is_sign" LOCATE = SITE "N10" LEVEL 1;
+COMP "LED<4>" LOCATE = SITE "A13" LEVEL 1;
 COMP "instruction<6>" LOCATE = SITE "F15" LEVEL 1;
 COMP "LED<5>" LOCATE = SITE "B13" LEVEL 1;
 COMP "instruction<7>" LOCATE = SITE "G14" LEVEL 1;

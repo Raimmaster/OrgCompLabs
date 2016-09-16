@@ -1,6 +1,5 @@
 verilog work "SyncRAM.v"
 verilog work "RegisterFile.v"
-verilog work "PC.v"
 verilog work "MoveMux.v"
 verilog work "Jumps.v"
 verilog work "InstructionMemory.v"
