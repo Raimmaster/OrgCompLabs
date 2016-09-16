@@ -2,8 +2,7 @@
 
 module PC(
 	input [7:0] new_PC,
-	output[7:0] curr_PC,
-	input we
+	output[7:0] curr_PC
    );
 	 
 	reg [7:0] PC;
@@ -11,8 +10,7 @@ module PC(
 
 	always @(new_PC)
 	begin
-		if(we)
-			PC = new_PC;
+		PC = new_PC;
 	end
 
 endmodule
