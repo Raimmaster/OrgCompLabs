@@ -16,18 +16,14 @@ module Main(
    );
 
 	
-	PC pc(new_PC, curr_PC, we);
+	PC pc(new_PC, curr_PC);
 	//data 
 	wire [15:0] imem_instruction;
 	InstructionMemory imem(instruct_dir, imem_instruction);//listo
 	
 	wire [1:0] read_addr1;
 	wire [1:0] read_addr2;
-
-	assign opcode = imem_instruction [15:11];
-	assign read_addr1 = imem_instruction[10:9];
-	assign read_addr2 = imem_instruction[8:7];
-	assign immediate = imem_instruction[8:1];
+	wire will_jump;
 	
 	wire reg_write;
 	wire write_flags;
@@ -47,14 +43,19 @@ module Main(
 	reg [7:0] move_data;
 	wire [7:0] w_read_data2;
 	wire [7:0] result;
-	reg [7:0] immediate;
+	wire [7:0] immediate;
 	wire is_reg_imm;
 	wire [4:0] opcode;
 	wire [7:0] read_data1;
+	
+	assign new_PC = will_jump ? imem_instruction[10:3] : (curr_PC + 1);
+	assign opcode = imem_instruction [15:11];
+	assign read_addr1 = imem_instruction[10:9];
+	assign read_addr2 = imem_instruction[8:7];
+	assign immediate = imem_instruction[8:1];
 
-
-	RegisterFile rfile(read_addr1, read_addr2, read_addr1, write_data, clk, 
-		reg_write, read_data1, w_read_data2);
+	RegisterFile rfile(read_addr1, read_addr2, read_address, read_addr1, write_data, clk, 
+		reg_write, read_data1, w_read_data2, register);
 
 	ControleUnit cunit(opcode, reg_write, w_is_move, is_mem_access, is_imm, alu_function, 
 		write_flags, dm_write_enable, is_jz, is_jnz, is_jl, is_jg, is_jump, is_reg_imm);
@@ -69,7 +70,6 @@ module Main(
 
 	MoveMux mMux(w_is_move, is_mem_access, is_reg_imm, w_read_data2, data_out, result, immediate, m_data);
 	
-	assign register = m_data;
 
 	always @(posedge clk) begin
 		if(is_imm)
@@ -78,6 +78,7 @@ module Main(
 			operand2 = w_read_data2;
 		end
 		
+		//register = m_data;
 	end	
 		
 endmodule

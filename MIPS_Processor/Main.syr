@@ -178,8 +178,6 @@ Analyzing top module <Main>.
 Module <Main> is correct for synthesis.
  
 Analyzing module <PC> in library <work>.
-WARNING:Xst:905 - "PC.v" line 13: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <we>
 Module <PC> is correct for synthesis.
  
 Analyzing module <InstructionMemory> in library <work>.
@@ -241,18 +239,14 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <PC>.
     Related source file is "PC.v".
-WARNING:Xst:737 - Found 8-bit latch for signal <PC>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 Unit <PC> synthesized.
 
 
 Synthesizing Unit <InstructionMemory>.
     Related source file is "InstructionMemory.v".
-WARNING:Xst:647 - Input <finish> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 256x16-bit dual-port RAM <Mram_instructions_mem> for signal <instructions_mem>.
-    Found 16-bit register for signal <curr_instruction>.
+    Found 16x16-bit ROM for signal <data$mux0000>.
     Summary:
-	inferred   1 RAM(s).
-	inferred  16 D-type flip-flop(s).
+	inferred   1 ROM(s).
 Unit <InstructionMemory> synthesized.
 
 
@@ -260,8 +254,9 @@ Synthesizing Unit <RegisterFile>.
     Related source file is "RegisterFile.v".
     Found 4x8-bit dual-port RAM <Mram_registers> for signal <registers>.
     Found 4x8-bit dual-port RAM <Mram_registers_ren> for signal <registers>.
+    Found 4x8-bit dual-port RAM <Mram_registers_ren_1> for signal <registers>.
     Summary:
-	inferred   2 RAM(s).
+	inferred   3 RAM(s).
 Unit <RegisterFile> synthesized.
 
 
@@ -305,39 +300,39 @@ Unit <MoveMux> synthesized.
 
 Synthesizing Unit <Main>.
     Related source file is "Main.v".
-WARNING:Xst:647 - Input <read_address> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <finish> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <instruction> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <read_enable> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <we> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1306 - Output <LED> is never assigned.
 WARNING:Xst:646 - Signal <write_flags> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:653 - Signal <write_data> is used but never assigned. This sourceless signal will be automatically connected to value 0.
-WARNING:Xst:646 - Signal <will_jump> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <new_PC> is used but never assigned. This sourceless signal will be automatically connected to value 0.
 WARNING:Xst:1780 - Signal <move_data> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <immediate> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
-WARNING:Xst:646 - Signal <imem_instruction<6:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <m_data> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <imem_instruction<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit adder carry out for signal <new_PC$addsub0000> created at line 51.
     Found 8-bit register for signal <operand2>.
     Summary:
 	inferred   8 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
 Unit <Main> synthesized.
 
 INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
-WARNING:Xst:524 - All outputs of the instance <jmps> of the block <Jumps> are unconnected in block <Main>.
-   This instance will be removed from the design along with all underlying logic
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 4
- 256x16-bit dual-port RAM                              : 1
- 4x8-bit dual-port RAM                                 : 2
+ 4x8-bit dual-port RAM                                 : 3
  4x8-bit single-port RAM                               : 1
-# Adders/Subtractors                                   : 1
+# ROMs                                                 : 1
+ 16x16-bit ROM                                         : 1
+# Adders/Subtractors                                   : 2
+ 1-bit adder carry out                                 : 1
  4-bit addsub                                          : 1
-# Registers                                            : 3
- 16-bit register                                       : 1
+# Registers                                            : 2
  8-bit register                                        : 2
-# Latches                                              : 1
- 8-bit latch                                           : 1
 # Comparators                                          : 3
  4-bit comparator greater                              : 1
  9-bit comparator less                                 : 2
@@ -350,35 +345,65 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <0>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:524 - All outputs of the instance <pc> of the block <PC> are unconnected in block <Main>.
+   This instance will be removed from the design along with all underlying logic
+WARNING:Xst:524 - All outputs of the instance <jmps> of the block <Jumps> are unconnected in block <Main>.
+   This instance will be removed from the design along with all underlying logic
+WARNING:Xst:1290 - Hierarchical block <sram> is unconnected in block <Main>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <mMux> is unconnected in block <Main>.
+   It will be removed from the design.
 
-Synthesizing (advanced) Unit <InstructionMemory>.
-INFO:Xst:3226 - The RAM <Mram_instructions_mem> will be implemented as a BLOCK RAM, absorbing the following register(s): <curr_instruction>
+Synthesizing (advanced) Unit <RegisterFile>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_registers> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
-    | ram_type           | Block                               |          |
+    | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 256-word x 16-bit                   |          |
-    |     mode           | read-first                          |          |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
     |     clkA           | connected to signal <clk>           | rise     |
-    |     weA            | connected to signal <we>            | high     |
-    |     addrA          | connected to signal <new_instruction_address> |          |
-    |     diA            | connected to signal <instruction_in> |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
+    |     weA            | connected to signal <write_enable>  | high     |
+    |     addrA          | connected to signal <write_addr>    |          |
+    |     diA            | connected to signal <write_data>    |          |
     -----------------------------------------------------------------------
     | Port B                                                              |
-    |     aspect ratio   | 256-word x 16-bit                   |          |
-    |     mode           | write-first                         |          |
-    |     clkB           | connected to signal <clk>           | rise     |
-    |     addrB          | connected to signal <address>       |          |
-    |     doB            | connected to signal <curr_instruction> |          |
-    |     dorstB         | connected to signal <we>            | high     |
-    | reset value        | 0000000000000000                               |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     addrB          | connected to signal <read_addr1>    |          |
+    |     doB            | connected to signal <read_data1>    |          |
     -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_registers_ren> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
-Unit <InstructionMemory> synthesized (advanced).
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <write_enable>  | high     |
+    |     addrA          | connected to signal <write_addr>    |          |
+    |     diA            | connected to signal <write_data>    |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     addrB          | connected to signal <read_addr2>    |          |
+    |     doB            | connected to signal <read_data2>    |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_registers_ren_1> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <write_enable>  | high     |
+    |     addrA          | connected to signal <write_addr>    |          |
+    |     diA            | connected to signal <write_data>    |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 4-word x 8-bit                      |          |
+    |     addrB          | connected to signal <read_addr_offline> |          |
+    |     doB            | connected to signal <read_data_offline> |          |
+    -----------------------------------------------------------------------
+Unit <RegisterFile> synthesized (advanced).
 
 Synthesizing (advanced) Unit <SyncRAM>.
 INFO:Xst:3231 - The small RAM <Mram_mem_data> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
@@ -400,15 +425,14 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 4
- 256x16-bit dual-port block RAM                        : 1
- 4x8-bit dual-port distributed RAM                     : 2
+ 4x8-bit dual-port distributed RAM                     : 3
  4x8-bit single-port distributed RAM                   : 1
+# ROMs                                                 : 1
+ 16x16-bit ROM                                         : 1
 # Adders/Subtractors                                   : 1
  4-bit addsub                                          : 1
 # Registers                                            : 16
  Flip-Flops                                            : 16
-# Latches                                              : 1
- 8-bit latch                                           : 1
 # Comparators                                          : 3
  4-bit comparator greater                              : 1
  9-bit comparator less                                 : 2
@@ -420,8 +444,8 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <7> in Unit <LPM_LATCH_1> is equivalent to the following 7 FFs/Latches, which will be removed : <6> <5> <4> <3> <2> <1> <0> 
-WARNING:Xst:1710 - FF/Latch <7> (without init value) has a constant value of 0 in block <LPM_LATCH_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:524 - All outputs of the instance <sram> of the block <SyncRAM> are unconnected in block <Main>.
+   This instance will be removed from the design along with all underlying logic
 
 Optimizing unit <Main> ...
 
@@ -431,33 +455,32 @@ Optimizing unit <SyncRAM> ...
 WARNING:Xst:2677 - Node <operand2_4> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <operand2_5> of sequential type is unconnected in block <Main>.
 WARNING:Xst:2677 - Node <operand2_6> of sequential type is unconnected in block <Main>.
-INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren1>, <rfile/Mram_registers_ren2> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren1>, <rfile/Mram_registers_ren5> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren1>, <rfile/Mram_registers_ren3> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren1>, <rfile/Mram_registers_ren4> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren1>, <rfile/Mram_registers_ren6> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren1>, <rfile/Mram_registers_ren7> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren1>, <rfile/Mram_registers_ren8> are equivalent, second RAM is removed
+WARNING:Xst:2677 - Node <rfile/Mram_registers_ren5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <rfile/Mram_registers_ren6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <rfile/Mram_registers_ren7> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <rfile/Mram_registers5> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <rfile/Mram_registers6> of sequential type is unconnected in block <Main>.
+WARNING:Xst:2677 - Node <rfile/Mram_registers7> of sequential type is unconnected in block <Main>.
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren_11>, <rfile/Mram_registers_ren_12> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren_11>, <rfile/Mram_registers_ren_15> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren_11>, <rfile/Mram_registers_ren_13> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren_11>, <rfile/Mram_registers_ren_14> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren_11>, <rfile/Mram_registers_ren_18> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren_11>, <rfile/Mram_registers_ren_16> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren_11>, <rfile/Mram_registers_ren_17> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren3>, <rfile/Mram_registers_ren1> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren3>, <rfile/Mram_registers_ren2> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren3>, <rfile/Mram_registers_ren4> are equivalent, second RAM is removed
+INFO:Xst:2399 - RAMs <rfile/Mram_registers_ren3>, <rfile/Mram_registers_ren8> are equivalent, second RAM is removed
 INFO:Xst:2399 - RAMs <rfile/Mram_registers2>, <rfile/Mram_registers1> are equivalent, second RAM is removed
 INFO:Xst:2399 - RAMs <rfile/Mram_registers2>, <rfile/Mram_registers3> are equivalent, second RAM is removed
 INFO:Xst:2399 - RAMs <rfile/Mram_registers2>, <rfile/Mram_registers4> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers2>, <rfile/Mram_registers5> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers2>, <rfile/Mram_registers6> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <rfile/Mram_registers2>, <rfile/Mram_registers7> are equivalent, second RAM is removed
 INFO:Xst:2399 - RAMs <rfile/Mram_registers2>, <rfile/Mram_registers8> are equivalent, second RAM is removed
 
 Mapping all equations...
 Building and optimizing final netlist ...
 INFO:Xst:2261 - The FF/Latch <operand2_0> in Unit <Main> is equivalent to the following 4 FFs/Latches, which will be removed : <operand2_1> <operand2_2> <operand2_3> <operand2_7> 
-INFO:Xst:2399 - RAMs <sram/Mram_mem_data8>, <sram/Mram_mem_data7> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <sram/Mram_mem_data8>, <sram/Mram_mem_data6> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <sram/Mram_mem_data8>, <sram/Mram_mem_data5> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <sram/Mram_mem_data8>, <sram/Mram_mem_data4> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <sram/Mram_mem_data8>, <sram/Mram_mem_data3> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <sram/Mram_mem_data8>, <sram/Mram_mem_data2> are equivalent, second RAM is removed
-INFO:Xst:2399 - RAMs <sram/Mram_mem_data8>, <sram/Mram_mem_data1> are equivalent, second RAM is removed
 Found area constraint ratio of 100 (+ 5) on block Main, actual ratio is 0.
-INFO:Xst:2260 - The FF/Latch <sram/read_data_7> in Unit <Main> is equivalent to the following 7 FFs/Latches : <sram/read_data_6> <sram/read_data_5> <sram/read_data_4> <sram/read_data_3> <sram/read_data_2> <sram/read_data_1> <sram/read_data_0> 
 
 Final Macro Processing ...
 
@@ -465,8 +488,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 9
- Flip-Flops                                            : 9
+# Registers                                            : 1
+ Flip-Flops                                            : 1
 
 =========================================================================
 
@@ -495,27 +518,20 @@ Design Statistics
 # IOs                              : 49
 
 Cell Usage :
-# BELS                             : 55
+# BELS                             : 11
 #      GND                         : 1
-#      LUT2                        : 1
-#      LUT2_D                      : 1
-#      LUT2_L                      : 1
-#      LUT3                        : 13
-#      LUT4                        : 34
-#      MUXF5                       : 3
-#      VCC                         : 1
-# FlipFlops/Latches                : 9
-#      FDE                         : 8
-#      FDR                         : 1
-# RAMS                             : 4
-#      RAM16X1D                    : 2
-#      RAM16X1S                    : 1
-#      RAMB16_S18_S18              : 1
+#      LUT3                        : 3
+#      LUT4                        : 6
+#      MUXF5                       : 1
+# FlipFlops/Latches                : 1
+#      FD                          : 1
+# RAMS                             : 3
+#      RAM16X1D                    : 3
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 44
-#      IBUF                        : 25
-#      OBUF                        : 19
+# IO Buffers                       : 21
+#      IBUF                        : 10
+#      OBUF                        : 11
 =========================================================================
 
 Device utilization summary:
@@ -523,14 +539,13 @@ Device utilization summary:
 
 Selected Device : 3s500eft256-5 
 
- Number of Slices:                       29  out of   4656     0%  
- Number of Slice Flip Flops:              9  out of   9312     0%  
- Number of 4 input LUTs:                 55  out of   9312     0%  
-    Number used as logic:                50
-    Number used as RAMs:                  5
+ Number of Slices:                        6  out of   4656     0%  
+ Number of Slice Flip Flops:              1  out of   9312     0%  
+ Number of 4 input LUTs:                 15  out of   9312     0%  
+    Number used as logic:                 9
+    Number used as RAMs:                  6
  Number of IOs:                          49
- Number of bonded IOBs:                  45  out of    190    23%  
- Number of BRAMs:                         1  out of     20     5%  
+ Number of bonded IOBs:                  22  out of    190    11%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -554,7 +569,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 13    |
+clk                                | BUFGP                  | 4     |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -565,10 +580,10 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 6.254ns (Maximum Frequency: 159.887MHz)
-   Minimum input arrival time before clock: 2.576ns
-   Maximum output required time after clock: 17.887ns
-   Maximum combinational path delay: No path found
+   Minimum period: 2.279ns (Maximum Frequency: 438.789MHz)
+   Minimum input arrival time before clock: 5.310ns
+   Maximum output required time after clock: 6.241ns
+   Maximum combinational path delay: 9.786ns
 
 Timing Detail:
 --------------
@@ -576,86 +591,102 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.254ns (frequency: 159.887MHz)
-  Total number of paths / destination ports: 135 / 32
+  Clock period: 2.279ns (frequency: 438.789MHz)
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Delay:               6.254ns (Levels of Logic = 2)
-  Source:            imem/Mram_instructions_mem (RAM)
-  Destination:       sram/read_data_7 (FF)
+Delay:               2.279ns (Levels of Logic = 0)
+  Source:            rfile/Mram_registers_ren3 (RAM)
+  Destination:       operand2_0 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: imem/Mram_instructions_mem to sram/read_data_7
+  Data Path: rfile/Mram_registers_ren3 to operand2_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB16_S18_S18:CLKB->DOB7    2   2.436   0.380  imem/Mram_instructions_mem (LED_7_OBUF)
-     RAM16X1D:DPRA0->DPO   14   0.612   0.850  rfile/Mram_registers_ren1 (operand2_mux0000<0>_norst)
-     RAM16X1S:A0->O        8   1.065   0.643  sram/Mram_mem_data8 (sram/_varindex0000<7>)
-     FDE:D                     0.268          sram/read_data_7
+     RAM16X1D:WCLK->DPO    1   1.654   0.357  rfile/Mram_registers_ren3 (w_read_data2<2>)
+     FD:D                      0.268          operand2_0
     ----------------------------------------
-    Total                      6.254ns (4.381ns logic, 1.873ns route)
-                                       (70.0% logic, 30.0% route)
+    Total                      2.279ns (1.922ns logic, 0.357ns route)
+                                       (84.3% logic, 15.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 26 / 26
+  Total number of paths / destination ports: 119 / 16
 -------------------------------------------------------------------------
-Offset:              2.576ns (Levels of Logic = 1)
-  Source:            we (PAD)
-  Destination:       imem/Mram_instructions_mem (RAM)
+Offset:              5.310ns (Levels of Logic = 5)
+  Source:            instruct_dir<6> (PAD)
+  Destination:       operand2_0 (FF)
   Destination Clock: clk rising
 
-  Data Path: we to imem/Mram_instructions_mem
+  Data Path: instruct_dir<6> to operand2_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.106   0.380  we_IBUF (we_IBUF)
-     RAMB16_S18_S18:WEA        1.090          imem/Mram_instructions_mem
+     IBUF:I->O             1   1.106   0.509  instruct_dir_6_IBUF (instruct_dir_6_IBUF)
+     LUT4:I0->O            1   0.612   0.000  cunit/reg_write_cmp_eq000111 (cunit/reg_write_cmp_eq00011)
+     MUXF5:I0->O           6   0.278   0.599  cunit/reg_write_cmp_eq00011_f5 (N4)
+     LUT4:I2->O            1   0.612   0.357  imem/data<8>1 (imem_instruction<8>)
+     RAM16X1D:DPRA1->DPO    1   0.612   0.357  rfile/Mram_registers_ren3 (w_read_data2<2>)
+     FD:D                      0.268          operand2_0
     ----------------------------------------
-    Total                      2.576ns (2.196ns logic, 0.380ns route)
-                                       (85.3% logic, 14.7% route)
+    Total                      5.310ns (3.488ns logic, 1.822ns route)
+                                       (65.7% logic, 34.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 3646 / 18
+  Total number of paths / destination ports: 12 / 10
 -------------------------------------------------------------------------
-Offset:              17.887ns (Levels of Logic = 11)
-  Source:            imem/Mram_instructions_mem (RAM)
-  Destination:       register<3> (PAD)
+Offset:              6.241ns (Levels of Logic = 2)
+  Source:            rfile/Mram_registers2 (RAM)
+  Destination:       is_zero (PAD)
   Source Clock:      clk rising
 
-  Data Path: imem/Mram_instructions_mem to register<3>
+  Data Path: rfile/Mram_registers2 to is_zero
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB16_S18_S18:CLKB->DOB13   11   2.436   0.945  imem/Mram_instructions_mem (imem_instruction<13>)
-     LUT3:I0->O            4   0.612   0.529  cunit/alu_function<1>11 (N4)
-     LUT3:I2->O            7   0.612   0.605  cunit/reg_write_cmp_eq00121 (alu_function<2>)
-     LUT4:I3->O            2   0.612   0.532  alun/_old_result_data_3<0>10 (alun/_old_result_data_3<0>10)
-     LUT4:I0->O            3   0.612   0.603  alun/_old_result_data_3<0>13 (alun/_old_result_data_3<0>13)
-     LUT3:I0->O            3   0.612   0.520  alun/_old_result_data_3<1>100 (result<1>)
-     LUT3:I1->O            2   0.612   0.532  alun/is_ovf_and0000_SW0 (N6)
-     LUT4:I0->O            2   0.612   0.383  mMux/data_and0000 (mMux/data_and0000)
-     LUT4:I3->O            8   0.612   0.646  mMux/data<0>21 (N3)
-     LUT4:I3->O            1   0.612   0.509  mMux/data<3>_SW0 (N12)
-     LUT3:I0->O            1   0.612   0.357  mMux/data<3> (register_3_OBUF)
-     OBUF:I->O                 3.169          register_3_OBUF (register<3>)
+     RAM16X1D:WCLK->DPO    2   1.654   0.449  rfile/Mram_registers2 (read_data1<1>)
+     LUT3:I1->O            1   0.612   0.357  alun/is_zero1 (is_zero_OBUF)
+     OBUF:I->O                 3.169          is_zero_OBUF (is_zero)
     ----------------------------------------
-    Total                     17.887ns (11.725ns logic, 6.162ns route)
-                                       (65.6% logic, 34.4% route)
+    Total                      6.241ns (5.435ns logic, 0.806ns route)
+                                       (87.1% logic, 12.9% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 64 / 10
+-------------------------------------------------------------------------
+Delay:               9.786ns (Levels of Logic = 7)
+  Source:            instruct_dir<6> (PAD)
+  Destination:       is_zero (PAD)
+
+  Data Path: instruct_dir<6> to is_zero
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.106   0.509  instruct_dir_6_IBUF (instruct_dir_6_IBUF)
+     LUT4:I0->O            1   0.612   0.000  cunit/reg_write_cmp_eq000111 (cunit/reg_write_cmp_eq00011)
+     MUXF5:I0->O           6   0.278   0.721  cunit/reg_write_cmp_eq00011_f5 (N4)
+     LUT4:I0->O           10   0.612   0.750  imem/data<9>1 (imem_instruction<9>)
+     RAM16X1D:DPRA0->DPO    2   0.612   0.449  rfile/Mram_registers2 (read_data1<1>)
+     LUT3:I1->O            1   0.612   0.357  alun/is_zero1 (is_zero_OBUF)
+     OBUF:I->O                 3.169          is_zero_OBUF (is_zero)
+    ----------------------------------------
+    Total                      9.786ns (7.001ns logic, 2.785ns route)
+                                       (71.5% logic, 28.5% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.15 secs
+Total CPU time to Xst completion: 4.01 secs
  
 --> 
 
-Total memory usage is 212080 kilobytes
+Total memory usage is 211952 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   25 (   0 filtered)
-Number of infos    :   29 (   0 filtered)
+Number of warnings :   30 (   0 filtered)
+Number of infos    :   23 (   0 filtered)
 
