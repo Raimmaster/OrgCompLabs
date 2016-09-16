@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: Main.prj
 
@@ -330,6 +330,13 @@ WARNING:Xst:1290 - Hierarchical block <sram> is unconnected in block <Main>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <jmps> is unconnected in block <Main>.
    It will be removed from the design.
+WARNING:Xst:1710 - FF/Latch <LED_2> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_3> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_4> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_5> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_6> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_7> (without init value) has a constant value of 0 in block <Main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2404 -  FFs/Latches <LED<7:2>> (without init value) have a constant value of 0 in block <Main>.
 
 Synthesizing (advanced) Unit <RegisterFile>.
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_registers> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
@@ -407,8 +414,8 @@ Macro Statistics
 # Adders/Subtractors                                   : 3
  8-bit adder                                           : 2
  8-bit subtractor                                      : 1
-# Registers                                            : 24
- Flip-Flops                                            : 24
+# Registers                                            : 18
+ Flip-Flops                                            : 18
 # Comparators                                          : 4
  8-bit comparator less                                 : 1
  9-bit comparator greatequal                           : 1
@@ -434,7 +441,6 @@ Optimizing unit <SyncRAM> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block Main, actual ratio is 0.
-FlipFlop curr_PC_1 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -442,8 +448,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 17
- Flip-Flops                                            : 17
+# Registers                                            : 10
+ Flip-Flops                                            : 10
 
 =========================================================================
 
@@ -472,20 +478,19 @@ Design Statistics
 # IOs                              : 50
 
 Cell Usage :
-# BELS                             : 66
+# BELS                             : 70
 #      GND                         : 1
 #      LUT2                        : 13
-#      LUT3                        : 6
-#      LUT3_L                      : 2
+#      LUT2_L                      : 1
+#      LUT3                        : 10
 #      LUT4                        : 26
-#      LUT4_D                      : 1
-#      LUT4_L                      : 1
+#      LUT4_D                      : 2
 #      MUXCY                       : 7
-#      MUXF5                       : 1
+#      MUXF5                       : 2
 #      XORCY                       : 8
-# FlipFlops/Latches                : 17
-#      FD                          : 10
-#      FDR                         : 2
+# FlipFlops/Latches                : 10
+#      FD                          : 4
+#      FDR                         : 1
 #      FDRS                        : 3
 #      FDS                         : 2
 # RAMS                             : 24
@@ -502,13 +507,14 @@ Device utilization summary:
 
 Selected Device : 3s500eft256-5 
 
- Number of Slices:                       26  out of   4656     0%  
- Number of Slice Flip Flops:             17  out of   9312     0%  
- Number of 4 input LUTs:                 97  out of   9312     1%  
-    Number used as logic:                49
+ Number of Slices:                       28  out of   4656     0%  
+ Number of Slice Flip Flops:              8  out of   9312     0%  
+ Number of 4 input LUTs:                100  out of   9312     1%  
+    Number used as logic:                52
     Number used as RAMs:                 48
  Number of IOs:                          50
  Number of bonded IOBs:                  23  out of    190    12%  
+    IOB Flip Flops:                       2
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -532,7 +538,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 41    |
+clk                                | BUFGP                  | 34    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -543,10 +549,10 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 8.536ns (Maximum Frequency: 117.148MHz)
-   Minimum input arrival time before clock: 4.208ns
-   Maximum output required time after clock: 12.775ns
-   Maximum combinational path delay: 5.887ns
+   Minimum period: 8.395ns (Maximum Frequency: 119.116MHz)
+   Minimum input arrival time before clock: 4.123ns
+   Maximum output required time after clock: 12.607ns
+   Maximum combinational path delay: 5.941ns
 
 Timing Detail:
 --------------
@@ -554,23 +560,23 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 8.536ns (frequency: 117.148MHz)
-  Total number of paths / destination ports: 8125 / 149
+  Clock period: 8.395ns (frequency: 119.116MHz)
+  Total number of paths / destination ports: 5801 / 140
 -------------------------------------------------------------------------
-Delay:               8.536ns (Levels of Logic = 13)
-  Source:            curr_PC_4 (FF)
+Delay:               8.395ns (Levels of Logic = 13)
+  Source:            curr_PC_2 (FF)
   Destination:       rfile/Mram_registers8 (RAM)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: curr_PC_4 to rfile/Mram_registers8
+  Data Path: curr_PC_2 to rfile/Mram_registers8
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               7   0.514   0.754  curr_PC_4 (curr_PC_4)
-     LUT3:I0->O            3   0.612   0.481  mMux/data<1>3_SW0 (N4)
-     LUT4:I2->O          100   0.612   1.091  imem/data<5>11 (imem_instruction<10>)
-     RAM16X1D:DPRA1->DPO    1   0.612   0.509  rfile/Mram_registers1 (read_data1<0>)
+     FDRS:C->Q             9   0.514   0.849  curr_PC_2 (curr_PC_2)
+     LUT4:I0->O            1   0.612   0.387  mMux/data<1>21_SW0 (N17)
+     LUT4:I2->O           19   0.612   0.922  mMux/data<1>21 (imem_instruction<7>)
+     RAM16X1D:DPRA0->DPO    1   0.612   0.509  rfile/Mram_registers_ren1 (operand2<0>)
      LUT2:I0->O            1   0.612   0.000  alun/Madd__old_result_data_3_lut<0> (alun/Madd__old_result_data_3_lut<0>)
      MUXCY:S->O            1   0.404   0.000  alun/Madd__old_result_data_3_cy<0> (alun/Madd__old_result_data_3_cy<0>)
      MUXCY:CI->O           1   0.052   0.000  alun/Madd__old_result_data_3_cy<1> (alun/Madd__old_result_data_3_cy<1>)
@@ -579,18 +585,18 @@ Delay:               8.536ns (Levels of Logic = 13)
      MUXCY:CI->O           1   0.052   0.000  alun/Madd__old_result_data_3_cy<4> (alun/Madd__old_result_data_3_cy<4>)
      MUXCY:CI->O           1   0.052   0.000  alun/Madd__old_result_data_3_cy<5> (alun/Madd__old_result_data_3_cy<5>)
      MUXCY:CI->O           0   0.052   0.000  alun/Madd__old_result_data_3_cy<6> (alun/Madd__old_result_data_3_cy<6>)
-     XORCY:CI->O           2   0.699   0.383  alun/Madd__old_result_data_3_xor<7> (mMux/move_data<7>)
-     LUT4:I3->O            4   0.612   0.000  mMux/data<7>1 (m_data<7>)
+     XORCY:CI->O           2   0.699   0.410  alun/Madd__old_result_data_3_xor<7> (mMux/move_data<7>)
+     LUT3:I2->O            3   0.612   0.000  mMux/data<7>1 (m_data<7>)
      RAM16X1D:D                0.332          rfile/Mram_registers8
     ----------------------------------------
-    Total                      8.536ns (5.318ns logic, 3.218ns route)
-                                       (62.3% logic, 37.7% route)
+    Total                      8.395ns (5.318ns logic, 3.077ns route)
+                                       (63.3% logic, 36.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 27 / 26
+  Total number of paths / destination ports: 29 / 27
 -------------------------------------------------------------------------
-Offset:              4.208ns (Levels of Logic = 4)
+Offset:              4.123ns (Levels of Logic = 4)
   Source:            reset (PAD)
   Destination:       curr_PC_5 (FF)
   Destination Clock: clk rising
@@ -599,32 +605,32 @@ Offset:              4.208ns (Levels of Logic = 4)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            11   1.106   0.823  reset_IBUF (reset_IBUF)
-     LUT4:I2->O            1   0.612   0.509  curr_PC_mux0000<8>21 (N12)
-     LUT3:I0->O            1   0.612   0.000  curr_PC_mux0000<8>2 (curr_PC_mux0000<8>2)
-     MUXF5:I0->O           1   0.278   0.000  curr_PC_mux0000<8>_f5 (curr_PC_mux0000<8>)
+     IBUF:I->O             9   1.106   0.727  reset_IBUF (reset_IBUF)
+     LUT4:I2->O            3   0.612   0.520  curr_PC_mux0000<8>21 (N9)
+     LUT3:I1->O            1   0.612   0.000  curr_PC_mux0000<8>_F (N25)
+     MUXF5:I0->O           1   0.278   0.000  curr_PC_mux0000<8> (curr_PC_mux0000<8>)
      FD:D                      0.268          curr_PC_5
     ----------------------------------------
-    Total                      4.208ns (2.876ns logic, 1.332ns route)
-                                       (68.3% logic, 31.7% route)
+    Total                      4.123ns (2.876ns logic, 1.247ns route)
+                                       (69.7% logic, 30.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 1750 / 18
+  Total number of paths / destination ports: 1614 / 12
 -------------------------------------------------------------------------
-Offset:              12.775ns (Levels of Logic = 13)
-  Source:            curr_PC_4 (FF)
+Offset:              12.607ns (Levels of Logic = 13)
+  Source:            curr_PC_2 (FF)
   Destination:       is_zero (PAD)
   Source Clock:      clk rising
 
-  Data Path: curr_PC_4 to is_zero
+  Data Path: curr_PC_2 to is_zero
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               7   0.514   0.754  curr_PC_4 (curr_PC_4)
-     LUT3:I0->O            3   0.612   0.481  mMux/data<1>3_SW0 (N4)
-     LUT4:I2->O          100   0.612   1.091  imem/data<5>11 (imem_instruction<10>)
-     RAM16X1D:DPRA1->DPO    1   0.612   0.509  rfile/Mram_registers1 (read_data1<0>)
+     FDRS:C->Q             9   0.514   0.849  curr_PC_2 (curr_PC_2)
+     LUT4:I0->O            1   0.612   0.387  mMux/data<1>21_SW0 (N17)
+     LUT4:I2->O           19   0.612   0.922  mMux/data<1>21 (imem_instruction<7>)
+     RAM16X1D:DPRA0->DPO    1   0.612   0.509  rfile/Mram_registers_ren1 (operand2<0>)
      LUT2:I0->O            1   0.612   0.000  alun/Madd__old_result_data_3_lut<0> (alun/Madd__old_result_data_3_lut<0>)
      MUXCY:S->O            1   0.404   0.000  alun/Madd__old_result_data_3_cy<0> (alun/Madd__old_result_data_3_cy<0>)
      MUXCY:CI->O           1   0.051   0.000  alun/Madd__old_result_data_3_cy<1> (alun/Madd__old_result_data_3_cy<1>)
@@ -636,14 +642,14 @@ Offset:              12.775ns (Levels of Logic = 13)
      LUT4:I2->O            1   0.612   0.357  alun/is_zero28 (is_zero_OBUF)
      OBUF:I->O                 3.169          is_zero_OBUF (is_zero)
     ----------------------------------------
-    Total                     12.775ns (8.664ns logic, 4.111ns route)
-                                       (67.8% logic, 32.2% route)
+    Total                     12.607ns (8.664ns logic, 3.943ns route)
+                                       (68.7% logic, 31.3% route)
 
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 16 / 8
 -------------------------------------------------------------------------
-Delay:               5.887ns (Levels of Logic = 3)
+Delay:               5.941ns (Levels of Logic = 3)
   Source:            read_address<0> (PAD)
   Destination:       register<7> (PAD)
 
@@ -651,24 +657,24 @@ Delay:               5.887ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             8   1.106   0.643  read_address_0_IBUF (read_address_0_IBUF)
+     IBUF:I->O             9   1.106   0.697  read_address_0_IBUF (read_address_0_IBUF)
      RAM16X1D:DPRA0->DPO    1   0.612   0.357  rfile/Mram_registers_ren_13 (register_2_OBUF)
      OBUF:I->O                 3.169          register_2_OBUF (register<2>)
     ----------------------------------------
-    Total                      5.887ns (4.887ns logic, 1.000ns route)
-                                       (83.0% logic, 17.0% route)
+    Total                      5.941ns (4.887ns logic, 1.054ns route)
+                                       (82.3% logic, 17.7% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 4.84 secs
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.93 secs
  
 --> 
 
-Total memory usage is 212016 kilobytes
+Total memory usage is 212592 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   13 (   0 filtered)
+Number of warnings :   20 (   0 filtered)
 Number of infos    :    4 (   0 filtered)
 

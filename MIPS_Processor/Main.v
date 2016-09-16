@@ -75,7 +75,7 @@ module Main(
 	
 	
 	always @(posedge clk) begin
-		LED = m_data;
+		LED = read_address;
 		if(reset) begin
 			curr_PC =0;
 		end

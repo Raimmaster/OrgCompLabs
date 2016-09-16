@@ -44,14 +44,9 @@ Setup/Hold to clock clk
                |Max Setup to|Max Hold to |                  | Clock  |
 Source         | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ---------------+------------+------------+------------------+--------+
-instruct_dir<0>|    4.348(R)|   -0.575(R)|clk_BUFGP         |   0.000|
-instruct_dir<1>|    4.362(R)|   -0.203(R)|clk_BUFGP         |   0.000|
-instruct_dir<2>|    4.360(R)|    0.486(R)|clk_BUFGP         |   0.000|
-instruct_dir<3>|    4.364(R)|   -0.800(R)|clk_BUFGP         |   0.000|
-instruct_dir<4>|    4.640(R)|   -1.189(R)|clk_BUFGP         |   0.000|
-instruct_dir<5>|    4.362(R)|   -0.908(R)|clk_BUFGP         |   0.000|
-instruct_dir<6>|    4.358(R)|   -0.403(R)|clk_BUFGP         |   0.000|
-instruct_dir<7>|    4.360(R)|   -0.598(R)|clk_BUFGP         |   0.000|
+read_address<0>|    2.984(R)|   -1.264(R)|clk_BUFGP         |   0.000|
+read_address<1>|    2.825(R)|   -1.134(R)|clk_BUFGP         |   0.000|
+reset          |    2.816(R)|    0.210(R)|clk_BUFGP         |   0.000|
 ---------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -59,73 +54,59 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-LED<0>      |    7.027(R)|clk_BUFGP         |   0.000|
-LED<1>      |    8.110(R)|clk_BUFGP         |   0.000|
-LED<2>      |    8.121(R)|clk_BUFGP         |   0.000|
-LED<3>      |    8.179(R)|clk_BUFGP         |   0.000|
-LED<4>      |    6.828(R)|clk_BUFGP         |   0.000|
-LED<5>      |    8.012(R)|clk_BUFGP         |   0.000|
-LED<6>      |    7.731(R)|clk_BUFGP         |   0.000|
-LED<7>      |    7.410(R)|clk_BUFGP         |   0.000|
-is_ovf      |    9.802(R)|clk_BUFGP         |   0.000|
-is_zero     |    9.502(R)|clk_BUFGP         |   0.000|
-register<0> |    8.491(R)|clk_BUFGP         |   0.000|
-register<1> |    8.224(R)|clk_BUFGP         |   0.000|
-register<2> |    8.957(R)|clk_BUFGP         |   0.000|
-register<3> |    9.172(R)|clk_BUFGP         |   0.000|
-register<4> |    8.927(R)|clk_BUFGP         |   0.000|
-register<5> |    8.719(R)|clk_BUFGP         |   0.000|
-register<6> |    9.171(R)|clk_BUFGP         |   0.000|
-register<7> |    9.388(R)|clk_BUFGP         |   0.000|
+LED<0>      |    5.344(R)|clk_BUFGP         |   0.000|
+LED<1>      |    5.353(R)|clk_BUFGP         |   0.000|
+is_ovf      |   12.622(R)|clk_BUFGP         |   0.000|
+is_zero     |   15.915(R)|clk_BUFGP         |   0.000|
+register<0> |    7.893(R)|clk_BUFGP         |   0.000|
+register<1> |    7.852(R)|clk_BUFGP         |   0.000|
+register<2> |    8.150(R)|clk_BUFGP         |   0.000|
+register<3> |    8.532(R)|clk_BUFGP         |   0.000|
+register<4> |    7.607(R)|clk_BUFGP         |   0.000|
+register<5> |    8.638(R)|clk_BUFGP         |   0.000|
+register<6> |    7.969(R)|clk_BUFGP         |   0.000|
+register<7> |    8.640(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    8.208|         |         |         |
+---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-instruct_dir<0>|is_ovf         |   10.685|
-instruct_dir<0>|is_zero        |   10.385|
-instruct_dir<1>|is_ovf         |   10.222|
-instruct_dir<1>|is_zero        |    9.922|
-instruct_dir<2>|is_ovf         |   10.169|
-instruct_dir<2>|is_zero        |    9.869|
-instruct_dir<3>|is_ovf         |   11.710|
-instruct_dir<3>|is_zero        |   11.410|
-instruct_dir<4>|is_ovf         |   12.390|
-instruct_dir<4>|is_zero        |   12.090|
-instruct_dir<5>|is_ovf         |   11.845|
-instruct_dir<5>|is_zero        |   11.545|
-instruct_dir<6>|is_ovf         |   11.213|
-instruct_dir<6>|is_zero        |   10.913|
-instruct_dir<7>|is_ovf         |   11.457|
-instruct_dir<7>|is_zero        |   11.157|
-read_address<0>|register<0>    |    7.741|
-read_address<0>|register<1>    |    7.474|
-read_address<0>|register<2>    |    8.207|
-read_address<0>|register<3>    |    8.422|
-read_address<0>|register<4>    |    8.177|
-read_address<0>|register<5>    |    7.969|
-read_address<0>|register<6>    |    8.421|
-read_address<0>|register<7>    |    8.638|
-read_address<1>|register<0>    |    8.706|
-read_address<1>|register<1>    |    8.439|
-read_address<1>|register<2>    |    9.172|
-read_address<1>|register<3>    |    9.387|
-read_address<1>|register<4>    |    9.142|
-read_address<1>|register<5>    |    8.934|
-read_address<1>|register<6>    |    9.386|
-read_address<1>|register<7>    |    9.603|
+read_address<0>|register<0>    |    7.954|
+read_address<0>|register<1>    |    8.126|
+read_address<0>|register<2>    |    7.447|
+read_address<0>|register<3>    |    8.286|
+read_address<0>|register<4>    |    7.668|
+read_address<0>|register<5>    |    8.998|
+read_address<0>|register<6>    |    8.457|
+read_address<0>|register<7>    |    8.409|
+read_address<1>|register<0>    |    6.700|
+read_address<1>|register<1>    |    6.886|
+read_address<1>|register<2>    |    7.169|
+read_address<1>|register<3>    |    7.936|
+read_address<1>|register<4>    |    6.633|
+read_address<1>|register<5>    |    8.139|
+read_address<1>|register<6>    |    7.473|
+read_address<1>|register<7>    |    7.824|
 ---------------+---------------+---------+
 
 
-Analysis completed Thu Sep 15 22:12:59 2016 
+Analysis completed Fri Sep 16 02:09:01 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 117 MB
+Peak Memory Usage: 118 MB
 
 
 

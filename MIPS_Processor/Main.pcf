@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Sep 15 22:12:49 2016
+// Written by: Map P.20131013 on Fri Sep 16 02:08:46 2016
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -9,11 +9,11 @@ COMP "is_zero" LOCATE = SITE "P14" LEVEL 1;
 COMP "instruction<12>" LOCATE = SITE "H12" LEVEL 1;
 COMP "instruction<13>" LOCATE = SITE "J14" LEVEL 1;
 COMP "instruction<14>" LOCATE = SITE "K14" LEVEL 1;
-COMP "instruction<15>" LOCATE = SITE "K12" LEVEL 1;
 COMP "instruct_dir<0>" LOCATE = SITE "D15" LEVEL 1;
+COMP "instruction<15>" LOCATE = SITE "K12" LEVEL 1;
 COMP "clk" LOCATE = SITE "B8" LEVEL 1;
-COMP "finish" LOCATE = SITE "R6" LEVEL 1;
 COMP "instruct_dir<1>" LOCATE = SITE "G16" LEVEL 1;
+COMP "finish" LOCATE = SITE "R6" LEVEL 1;
 COMP "instruct_dir<2>" LOCATE = SITE "J16" LEVEL 1;
 COMP "instruct_dir<3>" LOCATE = SITE "K15" LEVEL 1;
 COMP "instruct_dir<4>" LOCATE = SITE "C16" LEVEL 1;
