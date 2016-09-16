@@ -15,18 +15,20 @@ module Main(
 	output [7:0] LED
    );
 
-	wire [15:0] imem_instruction;
 	
 	PC pc(new_PC, curr_PC, we);
-
-	InstructionMemory imem(clk, curr_PC, instruction, instruct_dir, finish, imem_instruction, we, LED);//listo
+	//data 
+	wire [15:0] imem_instruction;
+	InstructionMemory imem(instruct_dir, imem_instruction);//listo
 	
 	wire [1:0] read_addr1;
 	wire [1:0] read_addr2;
 
+	assign opcode = imem_instruction [15:11];
 	assign read_addr1 = imem_instruction[10:9];
 	assign read_addr2 = imem_instruction[8:7];
-
+	assign immediate = imem_instruction[8:1];
+	
 	wire reg_write;
 	wire write_flags;
 	wire dm_write_enable;
@@ -50,7 +52,6 @@ module Main(
 	wire [4:0] opcode;
 	wire [7:0] read_data1;
 
-	assign opcode = imem_instruction [15:11];
 
 	RegisterFile rfile(read_addr1, read_addr2, read_addr1, write_data, clk, 
 		reg_write, read_data1, w_read_data2);
